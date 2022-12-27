@@ -29,7 +29,7 @@ similarity = cosine_similarity(vectorized)
 
 booksdata = pd.DataFrame(similarity, columns=booksdata['Book-Title'], index=booksdata['Book-Title']).reset_index()
 
-input_book = 'far beyond the stars (star trek deep space nine)'
+input_book = input("Enter a book").lower()
 recommendations = pd.DataFrame(booksdata.nlargest(5,input_book)['Book-Title'])
 recommendations = recommendations[recommendations['Book-Title']!=input_book]
 
